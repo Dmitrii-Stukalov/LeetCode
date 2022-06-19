@@ -26,7 +26,9 @@ class Solution2Test {
 	void thirdTest() {
 		Solution2.ListNode list1 = new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9)))))));
 		Solution2.ListNode list2 = new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9))));
+
 		assertEquals(new Solution2.ListNode(8, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(9, new Solution2.ListNode(0, new Solution2.ListNode(0, new Solution2.ListNode(0, new Solution2.ListNode(1)))))))), solution.addTwoNumbers(list1, list2));
+
 	}
 
 }

@@ -4,42 +4,29 @@ import java.util.Objects;
 
 public class Solution2 {
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		int overload = 0;
-		int firstNumber = 0;
-		int secondNumber = 0;
-		if (l1 != null && l1.next != null) {
-			firstNumber = l1.val;
+		ListNode dummyHead = new ListNode(0);
+		ListNode p = l1, q = l2, curr = dummyHead;
+		int carry = 0;
+		while (p != null || q != null) {
+			int x = (p != null) ? p.val : 0;
+			int y = (q != null) ? q.val : 0;
+			int sum = carry + x + y;
+			carry = sum / 10;
+			curr.next = new ListNode(sum % 10);
+			curr = curr.next;
+			if (p != null) p = p.next;
+			if (q != null) q = q.next;
 		}
-		if (l2 != null && l2.next != null) {
-			secondNumber = l2.val;
+		if (carry > 0) {
+			curr.next = new ListNode(carry);
 		}
-		int sum = firstNumber + secondNumber + overload;
-		int currentValue = 0;
-		if (sum > 9) {
-			currentValue = sum % 10;
-			l1.next.val += sum / 10;
-		} else {
-			currentValue = sum;
-		}
-		if (l1 == null && l2 == null) {
-			return new ListNode(currentValue);
-		}
-		if (l1 == null) {
-			return new ListNode(currentValue, addTwoNumbers(new ListNode(0), l2.next));
-		}
-		if (l2 == null) {
-			return new ListNode(currentValue, addTwoNumbers(new ListNode(0), l1.next));
-		}
-		return new ListNode(currentValue, addTwoNumbers(l1.next, l2.next));
+		return dummyHead.next;
 	}
 
 
 	public static class ListNode {
 		int val;
 		ListNode next;
-
-		ListNode() {
-		}
 
 		public ListNode(int val) {
 			this.val = val;
