@@ -3,7 +3,7 @@ package test;
 import code.Solution1108;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Solution1108Test {
 	Solution1108 solution = new Solution1108();
