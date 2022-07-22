@@ -16,13 +16,13 @@ class Solution1995Test {
 
 	@Test
 	void secondTest() {
-		int[] nums = new int[]{3,3,6,4,5};
+		int[] nums = new int[]{3, 3, 6, 4, 5};
 		assertEquals(0, solution.countQuadruplets(nums));
 	}
 
 	@Test
 	void thirdTest() {
-		int[] nums = new int[]{1,1,1,3,5};
+		int[] nums = new int[]{1, 1, 1, 3, 5};
 		assertEquals(4, solution.countQuadruplets(nums));
 	}
 
