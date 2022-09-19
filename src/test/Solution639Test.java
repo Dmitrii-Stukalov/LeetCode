@@ -3,7 +3,7 @@ package test;
 import code.Solution639;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Solution639Test {
 	Solution639 solution = new Solution639();
