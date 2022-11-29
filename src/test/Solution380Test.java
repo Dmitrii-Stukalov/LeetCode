@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Solution380Test {
-    Solution380 solution = new Solution380();
 
     @Test
     void firstTest() {
@@ -23,5 +22,4 @@ class Solution380Test {
         assertFalse(randomizedSet.insert(2)); // 2 was already in the set, so return false.
         assertEquals(2, randomizedSet.getRandom()); // Since 2 is the only number in the set, getRandom() will always return 2.
     }
-
 }
