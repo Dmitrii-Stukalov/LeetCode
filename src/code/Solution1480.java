@@ -2,12 +2,9 @@ package code;
 
 public class Solution1480 {
 	public int[] runningSum(int[] nums) {
-		int accumulator = 0;
-		int[] result = new int[nums.length];
-		for (int i = 0; i < nums.length; i++) {
-			accumulator += nums[i];
-			result[i] = accumulator;
+		for (int i = 1; i < nums.length; i++) {
+			nums[i] += nums[i - 1];
 		}
-		return result;
+		return nums;
 	}
 }
