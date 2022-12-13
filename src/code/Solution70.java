@@ -3,14 +3,13 @@ package code;
 public class Solution70 {
     public int climbStairs(int n) {
         if (n < 4) return n;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; i++) {
-            if (i < 3) {
-                ans[i] = i + 1;
-            } else {
-                ans[i] = ans[i - 2] + ans[i - 1];
-            }
+        int first = 2;
+        int second = 3;
+        for (int i = 3; i < n; i++) {
+            int result = first + second;
+            first = second;
+            second = result;
         }
-        return ans[n - 1];
+        return second;
     }
 }
