@@ -1,7 +1,7 @@
 package test;
 
 import code.Solution420;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class Solution420Test {
