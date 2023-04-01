@@ -1,9 +1,8 @@
 package test;
 
 import code.Solution35;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 class Solution35Test {
 	Solution35 solution = new Solution35();

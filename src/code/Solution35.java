@@ -2,34 +2,19 @@ package code;
 
 public class Solution35 {
 	public int searchInsert(int[] nums, int target) {
-		int left = 0;
-		int right = nums.length;
-		int prev_mid = -1;
-		while (left < right) {
-			int mid = (right + left) / 2;
-			if (prev_mid == mid) {
-				if (nums[mid] > target) {
-					return mid;
-				} else {
-					return mid + 1;
-				}
+		int l = 0;
+		int r = nums.length - 1;
+		while (l < r) {
+			int m = (l + r) / 2;
+			if (nums[m] == target) {
+				return m;
 			}
-			if (nums[mid] > target) {
-				right = mid;
-				prev_mid = mid;
-				continue;
+			if (nums[m] < target) {
+				l = m + 1;
+			} else {
+				r = m;
 			}
-			if (nums[mid] < target) {
-				left = mid;
-				prev_mid = mid;
-				continue;
-			}
-			return mid;
 		}
-		if (nums[prev_mid] > target) {
-			return prev_mid;
-		} else {
-			return prev_mid + 1;
-		}
+		return nums[l] < target ? l + 1 : l;
 	}
 }
