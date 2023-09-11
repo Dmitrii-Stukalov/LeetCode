@@ -1,34 +1,25 @@
 package code;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Solution1282 {
 	public List<List<Integer>> groupThePeople(int[] groupSizes) {
-		int[] copyOf = Arrays.copyOf(groupSizes, groupSizes.length);
-		Arrays.sort(copyOf);
 		List<List<Integer>> result = new ArrayList<>();
-		List<Integer> current = new ArrayList<>();
-		for (int j : copyOf) {
-			if (current.size() < j) {
-				current.add(findInitialIndex(j, groupSizes));
-				if (current.size() == j) {
-					result.add(current);
-					current = new ArrayList<>();
-				}
+		Map<Integer, List<Integer>> groups = new HashMap<>();
+		for (int i = 0; i < groupSizes.length; i++) {
+			int size = groupSizes[i];
+			List<Integer> group = groups.getOrDefault(size, new ArrayList<>());
+			group.add(i);
+			if (group.size() == size) {
+				result.add(group);
+				groups.put(size, new ArrayList<>());
+			} else {
+				groups.put(size, group);
 			}
 		}
 		return result;
-	}
-
-	private int findInitialIndex(int num, int[] groupSizes) {
-		for (int i = 0; i < groupSizes.length; i++) {
-			if (groupSizes[i] == num) {
-				groupSizes[i] = -1;
-				return i;
-			}
-		}
-		return -1;
 	}
 }
